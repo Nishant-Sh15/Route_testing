@@ -1,0 +1,124 @@
+V1 — Core API Client (MVP)
+
+Request Panel
+
+URL input
+HTTP methods (GET, POST, PUT, PATCH, DELETE)
+Headers editor
+Query params editor
+Request body (JSON/Text)
+
+Response Panel
+
+Status code
+Response time
+Response headers
+Raw response
+Pretty JSON formatting
+Syntax highlighting (JSON, HTML, XML, JS, CSS, etc.)
+
+Preview Tab
+
+Only for HTML responses
+Render using iframe srcDoc
+Toggle between:
+Raw
+Pretty
+Preview
+
+Backend Proxy
+
+Frontend → Backend
+Backend → Target URL
+Avoid CORS issues
+V2 — Organization Features
+
+Collections
+
+Save requests
+Create folders
+Group APIs
+
+Environment Variables
+
+{{BASE_URL}}
+{{TOKEN}}
+
+Import / Export
+
+Export collections as JSON
+Import collections
+
+Request History
+
+Recent requests
+Re-run with one click
+V3 — Advanced API Features
+
+Authentication
+
+Bearer Token
+Basic Auth
+API Key
+
+WebSocket Client
+
+Connect to ws://
+Send messages
+View live messages
+
+GraphQL
+
+Query editor
+Variables editor
+Response viewer
+V4 — Nice Extras
+
+Code Generation
+Generate:
+
+JavaScript Fetch
+Axios
+Python Requests
+cURL
+
+Example:
+
+curl -X POST ...
+
+Response Comparison
+
+Compare two API responses
+
+Themes
+
+Dark/Light mode
+V5 — Stretch Goals
+
+HTML Preview Improvements
+
+Handle relative image URLs
+Handle relative CSS URLs
+
+Team Features
+
+Shared collections
+Workspaces
+
+Testing
+
+Assertions
+status === 200
+response.name !== null
+
+A good stopping point for internships/resume purposes is:
+
+✅ V1 complete
+✅ Collections from V2
+✅ Authentication from V3
+
+That already becomes:
+
+"A Postman/Hoppscotch-inspired API testing client with HTML preview support."
+
+which is a strong developer-tool project.
