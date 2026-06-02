@@ -1,5 +1,13 @@
 @import "tailwindcss";
-/* @plugin "tailwind-scrollbar"; */
+@plugin "tailwind-scrollbar";
 body{
-    font-family: var(--font-sans);
+    font-family: var(--font-sans) , sans-serif;
+}
+
+.mono{
+    font-family: var(--font-mono) , monospace;
+}
+.sans{
+    font-family: var(--font-sans) , sans-serif;
+
 }

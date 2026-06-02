@@ -1,6 +1,8 @@
+
 import LeftBar from "@/components/leftbar/leftbar";
+import ReqHandler from "@/components/reqhandler/reqbox";
 import Topbar from "@/components/topbar/topbar";
-import Image from "next/image";
+
 
 export default function Home() {
   return <>
@@ -9,6 +11,9 @@ export default function Home() {
 
           <div className=" w-full h-full flex-1 grid grid-cols-[1fr_7fr] ">
               <LeftBar />
+
+              <ReqHandler />
+
           </div>
     </div>
   </>

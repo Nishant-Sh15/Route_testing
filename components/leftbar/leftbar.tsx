@@ -21,7 +21,7 @@ export default function LeftBar() {
                     History
                 </div>
 
-                <div className="py-2  max-h-[45rem] overflow-auto scrollbar scrollbar-thumb-red45">
+                <div className="py-2  max-h-[45rem] overflow-auto scrollbar scrollbar-thumb-[#f7f1e8] scrollbar-thin">
                     <div className="flex flex-col overflow-auto ">
  <HistoryCard type="get" link="/posts/1" />
                     <HistoryCard type="delete" link="/posts/1" />
