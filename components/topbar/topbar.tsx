@@ -17,11 +17,11 @@ export default function Topbar() {
                     </div>
                 </div>
                 
-                <Tab type="delete" />
+                {/* <Tab type="delete" />
                 <Tab type="get" />
                 <Tab type="put" />
                 <Tab type="post" />
-                <Plus className='h-4 w-4 absolute right-0 m-2'/>
+                <Plus className='h-4 w-4 absolute right-0 m-2'/> */}
             </div>
 
             <a href="https://github.com/Nishant-Sh15/Route_testing" className='m-2'>

@@ -1,4 +1,4 @@
-
+import useReqMethod from "@/hooks/useReqMethod"
 
 type propType = {
     type: "get" | "post" | "put" | "patch" | "delete" | "patch",
@@ -6,8 +6,12 @@ type propType = {
 
 
 export default function Method({ type }: propType) {
+    const {setReqMethod}=useReqMethod();
+    function handleClick(){
+        setReqMethod(type);
+    }
     return <>
-        <div className="w-full flex mt-1 hover:bg-[#f0e9dc] p-1 pl-4 text-xs">
+        <div className="w-full flex mt-1 hover:bg-[#f0e9dc] p-1 pl-4 text-xs cursor-pointer" onClick={handleClick}>
             {type == "get" ? <>
                 <div className="text-[#2e7d32] px-2 bg-[#2e7d321a] rounded-md">
                     Get

@@ -1,0 +1,1 @@
+type responseModeType="Raw" | "Pretty"

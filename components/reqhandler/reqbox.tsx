@@ -6,17 +6,26 @@ import { useState } from "react";
 
 
 import type { reqDataType } from "@/types/reqDataType";
+import Output from "./output/output";
+import { AxiosResponse } from "axios";
+
+import ResponseDataContext from "@/contextApi/responseDataContext";
 
 export default function ReqHandler() {
-    const [reqData,setReqData]=useState<reqDataType>({
-        url:"",
-        body:[{key:"",value:""}],
-        headers:[{key:"",value:""}],
-        params:[{key:"",value:""}]
-    });
+    const [responseData,setResponseData]=useState<AxiosResponse | null>(null);
     return <>
-        <div className="grid grid-rows-[1fr_1fr] bg-[#fdf8f0] ">
-            <InputBox setReqData={setReqData} reqData={reqData}/>
+        <div className="flex flex-col bg-[#fdf8f0] min-w-0">
+            <ResponseDataContext.Provider 
+                value={{
+                    responseData,
+                    setResponseData
+                }}
+            >
+
+            <InputBox  />
+            <Output  />
+
+            </ResponseDataContext.Provider>
         </div>
     </>
 }

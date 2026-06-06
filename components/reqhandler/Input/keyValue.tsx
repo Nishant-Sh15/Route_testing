@@ -1,36 +1,20 @@
+import useKeyValuePairHandler from "@/hooks/useKeyValuePairHandler";
 import { dataModeType } from "@/types/dataModeType"
-import { reqDataType } from "@/types/reqDataType"
+
+import { Trash } from 'lucide-react';
 
 
 type propType = {
     dataMode: dataModeType,
-    reqData: reqDataType,
-    changeKey: Function,
-    changeValue: Function,
 }
-export default function KeyValueWrapper({ dataMode, reqData, changeKey, changeValue }: propType) {
+export default function KeyValueWrapper({ dataMode }: propType) {
+    const {reqData}=useKeyValuePairHandler();
     return <>
-        <div className="overflow-auto h-[19rem] scrollbar scrollbar-thumb-[#f7f1e8] scrollbar-thin">
-            {dataMode == "Headers" ?
-                reqData.headers.map((item, index) => (
-                    <KeyValue key={index} index={index} text={item.key} value={item.value} changeKey={changeKey} changeValue={changeValue}/>
+        <div className="overflow-auto h-[10rem] scrollbar scrollbar-thumb-[#f7f1e8] scrollbar-thin">
+            {
+                reqData[dataMode].map((item, index) => (
+                    <KeyValue key={index} index={index} text={item.key} value={item.value} dataMode={dataMode}/>
                 ))
-                : null
-            }
-            {
-                dataMode == "Params" ?
-                    reqData.params.map((item, index) => (
-                        <KeyValue key={index} index={index} text={item.key} value={item.value} changeKey={changeKey} changeValue={changeValue}/>
-                    ))
-                    : null
-
-            }
-            {
-                dataMode == "Body" ?
-                    reqData.body.map((item, index) => (
-                        <KeyValue key={index} index={index} text={item.key} value={item.value} changeKey={changeKey} changeValue={changeValue}/>
-                    ))
-                    : null
             }
         </div>
     </>
@@ -40,31 +24,37 @@ type KeyValuePropType = {
     index: number,
     text: string,
     value: string,
-    changeKey: Function,
-    changeValue: Function,
+    dataMode:dataModeType,
 }
 
-export function KeyValue({ index, text, value, changeKey,changeValue }: KeyValuePropType) {
+export function KeyValue({ index, text, value,dataMode }: KeyValuePropType) {
+    const {changeKey,changeValue,handleDelete}=useKeyValuePairHandler();
     return <>
-        <div className='grid grid-cols-[1fr_1fr] py-2 text-[1rem] '>
+        <div className='flex justify-center py-2 text-[1rem] '>
             <input
                 type="text"
-                className='focus:outline-none border border-gray-300 rounded-sm mx-1 p-1 px-2'
+                className='focus:outline-none border border-gray-300 w-[45%] rounded-sm mx-1 p-1 px-2'
                 placeholder='Key'
                 onChange={(e) => {
-                    changeKey(index, e.target.value)
+                    changeKey(index, e.target.value,dataMode)
                 }}
                 value={text}
             />
             <input
                 type="text"
-                className='focus:outline-none border border-gray-300 rounded-sm mx-1 p-1 px-2'
+                className='focus:outline-none border border-gray-300 w-[45%] rounded-sm mx-1 p-1 px-2'
                 placeholder='Value'
                 onChange={(e)=>{
-                    changeValue(index, e.target.value)
+                    changeValue(index, e.target.value,dataMode)
                 }}
                 value={value}
             />
+
+            <div className="p-2 rounded-md text-gray-300 cursor-pointer " onClick={(e)=>{
+                handleDelete(index,dataMode);
+            }}>
+                <Trash className="h-4 w-4"/>
+            </div>
         </div>
     </>
 }

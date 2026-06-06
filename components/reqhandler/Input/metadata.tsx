@@ -9,9 +9,9 @@ type propType = {
 export default function MetaData({ dataMode, setDataMode }: propType) {
     return <>
         <div className="flex text-[#5c4f3a] px-4  bg-[#f7f1e8] border-b border-b-gray-300">
-            <Cards text="Params" active={dataMode=="Params"} setDataMode={setDataMode}/>
-            <Cards text="Body" active={dataMode=="Body"} setDataMode={setDataMode}/>
-            <Cards text="Headers" active={dataMode=="Headers"} setDataMode={setDataMode} />
+            <Cards text="params" active={dataMode=="params"} setDataMode={setDataMode}/>
+            <Cards text="body" active={dataMode=="body"} setDataMode={setDataMode}/>
+            <Cards text="headers" active={dataMode=="headers"} setDataMode={setDataMode} />
         </div>
     </>
 
